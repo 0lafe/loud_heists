@@ -1,0 +1,31 @@
+-- local function log_pos()
+--   local target_pos = managers.player:player_unit():position()
+--   log(target_pos.x)
+--   log(target_pos.y)
+--   log(target_pos.z)
+-- end
+
+-- log_pos()
+
+-- 1 is zeal lmg
+-- 2 is zeal shotgun
+-- 3 is izhma
+
+-- local unit_name = Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy/ene_zeal_swat_heavy")
+-- local unit_name = Idstring("units/pd2_dlc_drm/characters/ene_bulldozer_minigun/ene_bulldozer_minigun")
+-- for k, criminal in pairs(managers.criminals:characters()) do
+--   local target_pos = nil
+--   if criminal and criminal.unit and criminal.peer_id == 1 then
+--     log("hello :)")
+--     target_pos = criminal.unit:position()
+--   end
+--   if target_pos then
+--     local target_rot = Rotation(0, 0, 0)
+--     for i = 1, 1 do
+--       local unit_done = safe_spawn_unit(unit_name, target_pos, target_rot)
+--       local team_name = unit_done:base():char_tweak().access == "gangster" and "gangster" or "combatant"
+--       local team_id = tweak_data.levels:get_default_team_ID(team_name)
+--       unit_done:movement():set_team(managers.groupai:state():team_data(team_id))
+--     end
+--   end
+-- end
