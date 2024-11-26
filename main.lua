@@ -122,6 +122,24 @@ if not LoudHeist then
     }
   end
 
+  function LoudHeist:gen_preferedremove(id, name, opts)
+    opts = opts or {}
+    return {
+      id = id,
+      editor_name = name,
+      class = "ElementEnemyPreferedRemove",
+      values = {
+        execute_on_startup = opts.execute_on_startup or false,
+        elements = opts.elements or false,
+        base_delay = opts.base_delay or 0,
+        trigger_times = opts.trigger_times or 0,
+        spawn_groups = opts.spawn_groups or {},
+        on_executed = opts.on_executed or {},
+        enabled = true
+      },
+    }
+  end
+
   function LoudHeist:gen_unit_sequence(id, name, opts)
     opts = opts or {}
     return {
@@ -187,6 +205,64 @@ if not LoudHeist then
         interrupt_dis = opts.interrupt_dis or 1,
         patrol_path = "none",
       },
+    }
+  end
+
+  function LoudHeist:gen_aiglobalevent(id, name, opts)
+    opts = opts or {}
+    return {
+      id = id,
+      editor_name = name,
+      class = "ElementAiGlobalEvent",
+      values = {
+        on_executed = opts.on_executed or {},
+        trigger_times = 1,
+        base_delay = 0,
+        execute_on_startup = false,
+        enabled = true,
+        wave_mode = opts.wave_mode or "none",
+        AI_event = opts.AI_event or "none",
+        blame = opts.blame or "empty"
+      },
+    }
+  end
+
+  function LoudHeist:gen_fakeassaultstate(id, name, state)
+    return {
+      id = id,
+      editor_name = name,
+      class = "ElementFakeAssaultState",
+      values = {
+        on_executed = {},
+        trigger_times = 1,
+        base_delay = 0,
+        execute_on_startup = false,
+        enabled = true,
+        state = state or false
+      },
+    }
+  end
+
+  function LoudHeist:gen_playsound(id, name, rot, pos, opts)
+    return {
+      id = id,
+      editor_name = name,
+      class = "ElementPlaySound",
+      module = "CoreElementPlaySound",
+      values = {
+        execute_on_startup = opts.execute_on_startup or false,
+        rotation = rot,
+        position = pos,
+        use_instigator = opts.use_instigator or false,
+        base_delay = opts.base_delay or 0,
+        elements = opts.elements or {},
+        append_prefix = opts.append_prefix or false,
+        interrupt = opts.interrupt or false,
+        trigger_times = opts.trigger_times or 0,
+        enabled = opts.enabled or true,
+        on_executed = opts.on_executed or {},
+        sound_event = opts.sound_event
+      }
     }
   end
 end

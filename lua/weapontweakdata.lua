@@ -6,7 +6,6 @@ LoudHeistTweakData = LoudHeistTweakData or class()
 
 function LoudHeistTweakData:init(tweak_data)
   self.cage = {
-    ponr_timer = 1200,
-    pc_hack_timer = 400
+    pc_hack_timer = 360
   }
 end
